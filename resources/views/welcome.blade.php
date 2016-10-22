@@ -25,11 +25,11 @@
 
               <form method="post" action="/signup">
               {{csrf_field()}}
-                <div class="form-group {{ $error->has('email') ? 'has-error' : '' }}">
+                <div class="form-group ">
                   <label for="email">Email</label>
                   <input type="text" class="form-control" name="email" placeholder="Email" value="{{Request::old('email')}}">
                 </div>
-                <div class="form-group  {{ $error->has('fullname') ? 'has-error' : '' }}">
+                <div class="form-group ">
                   <label for="fullname">Full Name</label>
                   <input type="text" class="form-control" name="fullname" placeholder="Full name" value="{{Request::old('fullname')}}">
                 </div>
@@ -45,7 +45,7 @@
             <h2>Sign in</h2>
               <form  method="post" action="/signin">
                {{csrf_field()}}
-                <div class="form-group  {{ $error->has('email') ? 'has-error' : '' }}">
+                <div class="form-group  ">
                   <label for="email">Email</label>
                   <input type="text" class="form-control" name="email" placeholder="Email" value="{{Request::old('email')}}">
                 </div>

@@ -39,14 +39,12 @@ class UserController extends Controller
  		//if user signin
     public function postSignin(Request $request){
 
-    		$this->validate($request, [
-    		'email' => 'required|email|unique:users',
-    		'password' => 'required|min:4'
-    	]);
+    	$email = $request['email'];
+    	$password = bcrypt($request['password']);
 
     	if(Auth::attempt([
-    		'email' => $request['email'], 
-    		'password' => $request['password']
+    		'email' => $email, 
+    		'password' => bcrypt($password)
     		])) {
     			return redirect()->route('dashboard');
 		}
